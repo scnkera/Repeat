@@ -1,6 +1,32 @@
 def first_uncommon(matrix, n):
     # Your implementation here!
-    pass
+    hash_table = {}
+    for row in matrix:
+        for letter in row:
+            if letter not in hash_table:
+                hash_table[letter] = 1
+            else:
+                hash_table[letter] += 1
+
+    # option 1
+    # viable_list = []
+
+    # for letter, freq in hash_table.items():
+    #     if freq < n:
+    #         viable_list.append(letter)
+
+    # letter = viable_list[0]
+
+    # return letter
+
+    # option 2
+
+    for row in matrix:
+        for letter in row:
+            if hash_table[letter] < n:
+                return letter
+
+
 
 matrix_1 = (
     ('u','e','r','e', ' ', 'e'),
